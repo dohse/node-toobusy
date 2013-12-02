@@ -60,11 +60,6 @@ Handle<Value> HighWaterMark(const Arguments& args) {
                     v8::String::New("expected numeric first argument")));
         }
         int hwm = args[0]->Int32Value();
-        if (hwm < 10) {
-            return v8::ThrowException(
-                v8::Exception::Error(
-                    v8::String::New("maximum lag should be greater than 10ms")));
-        }
         HIGH_WATER_MARK_MS = hwm;
     }
 
